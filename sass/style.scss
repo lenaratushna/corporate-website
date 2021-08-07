@@ -36,8 +36,25 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 $font-family: 'Open Sans', sans-serif;
 $header-color: #FFFFFF;
 
+@mixin h2_line {
+    display: block;
+    width: 50px;
+    content: '';
+    border-bottom: 2px solid #00A4E5;
+}
+
 body{
     font-family: $font-family;
+    background: #FFFFFF;
+}
+
+h2{
+    position: relative;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #48555B;
+    padding-bottom: 10px;
 }
 
 .wrapper{
@@ -218,6 +235,100 @@ body{
 
 }
 
+/*Styles for section about*/
+
+.about {
+    padding: 50px 0;
+    &__title {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    &__title::after{
+        @include h2_line();
+        margin: 0 auto;
+    }
+    &_content {
+        display: flex;
+        
+        justify-content: space-between;
+        padding: 50px 0;
+        .text{
+            color: #48555B;
+            &__main{
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 27px; 
+                span{
+                    color:#00A4E5;
+                } 
+            }
+            &__add{
+                font-weight: normal;
+                font-size: 13px;
+                line-height: 23px;
+            }
+        }
+    }
+}
+
+.content__text{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.content__img{
+   text-align: end;
+}
+
+.img {
+    display: flex;
+    justify-content: flex-end;
+    &__container {
+        position: relative;
+        max-width: 140px;
+        max-height: 224;
+        margin-left: 15px;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .img__text{
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            text-align: left;
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 29px;
+            letter-spacing: 0.2px;
+            color: #FFFFFF;
+        }
+    }
+    &__container:first-child{
+        margin-left: 0px;
+   }
+}
+
+/*Media*/
+
+@media screen and (max-width:952px) {
+    .about_content{
+        flex-direction: column;
+        align-items: center;
+        .content__text{
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .content__img{
+            justify-content: center;
+        }
+    }
+}
 
 @media screen and (max-width:767px) {
     .nav{
@@ -279,8 +390,19 @@ body{
             margin-bottom: 0px;
         }
     }
+}
+
+@media screen and (max-width:480px){
+    .header__title{
+        font-size: 42px;
+        letter-spacing: 2px;
+    }
+
+
 
 }
+
+
 
 
 
